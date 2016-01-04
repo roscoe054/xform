@@ -36,6 +36,7 @@ var styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 3,
         borderColor: '#ccc',
+        color: '#333',
         fontSize: 17,
     },
     disabled: {

@@ -23,11 +23,15 @@ var model = {
             label: "年龄",
             value: "18"
         },
+        year: {
+            type: f.fieldType.Spinner,
+            label: "入学年份",
+            value: "2015",
+        },
         rememberMe: {
             type: f.fieldType.Boolean,
             label: "记住我",
             value: true,
-            disabled: true
         }
     },
     Form = f.Form

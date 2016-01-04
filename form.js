@@ -3,15 +3,20 @@
 var React = require('react-native')
 var extend = require('extend')
 
+// common components
 var Switch = require('./switch');
 var Input = require('./input');
+
+// custom components
+var Spinner = require('react-native-spinner');
 
 var {StyleSheet, Text, View, TouchableOpacity, TextInput, SwitchIOS,} = React
 
 var fieldType = {
     String: "string",
     Number: "number",
-    Boolean: "boolean"
+    Boolean: "boolean",
+    Spinner: "spinner"
 }, rowId = 0
 
 var inited = false
@@ -46,6 +51,14 @@ var Form = React.createClass({
                 case "boolean":
                     rowContent = <Switch ref={rowId} name={i} value={rowModel.value} disabled={rowModel.disabled}/>
                     break;
+                case "spinner":
+                    rowContent = <Spinner
+                                    ref={rowId}
+                                    name={i}
+                                    value={rowModel.value}
+                                    disabled={rowModel.disabled}
+                                />
+                    break;
                 default:
             }
 
@@ -78,7 +91,7 @@ var Form = React.createClass({
 
 var styles = StyleSheet.create({
     container: {
-        paddingTop: 4,
+        paddingTop: 2,
         paddingBottom: 12,
         paddingLeft: 8,
         paddingRight: 8,
@@ -90,7 +103,7 @@ var styles = StyleSheet.create({
         fontSize: 15,
     },
     formRow: {
-        marginTop: 8,
+        marginTop: 10,
     },
 })
 
