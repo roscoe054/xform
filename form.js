@@ -4,8 +4,8 @@ var React = require('react-native')
 var extend = require('extend')
 
 // common components
-var Switch = require('./switch');
-var Input = require('./input');
+var Switch = require('./components/switch');
+var Input = require('./components/input');
 
 // custom components
 var Spinner = require('react-native-spinner');
