@@ -31,20 +31,20 @@ var Form = React.createClass({
             rows = [],
             defaultRowModel = {
                 style: {},
-                onChange: function(){console.log(this);}
+                disabled: false,
             }
 
         for (var i in model) {
-            var rowModel = extend(defaultRowModel, model[i]),
+            var rowModel = extend(true, {}, defaultRowModel, model[i]),
                 rowContent = null
 
             switch (rowModel.type) {
                 case "number":
                 case "string":
-                    rowContent = <Input ref={rowId} name={i} value={rowModel.value} />
+                    rowContent = <Input ref={rowId} name={i} value={rowModel.value} editable={!rowModel.disabled}/>
                     break;
                 case "boolean":
-                    rowContent = <Switch ref={rowId} name={i} value={rowModel.value} />
+                    rowContent = <Switch ref={rowId} name={i} value={rowModel.value} disabled={rowModel.disabled}/>
                     break;
                 default:
             }

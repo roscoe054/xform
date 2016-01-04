@@ -8,11 +8,17 @@ var Input = React.createClass({
     getInitialState() {
         return {
             value: this.props.value,
+            editable: this.props.editable,
         };
     },
     render() {
+        var st = this.state
+
         return (
-            <TextInput value={this.state.value} style={[styles.input]} onChangeText={(value) => this.setState({value: value})}/>
+            <TextInput value={st.value}
+                style={[styles.input, st.editable ? null : styles.disabled]}
+                onChangeText={(value) => this.setState({value: value})}
+                editable={st.editable}/>
         );
     },
     getValue: function(){
@@ -31,6 +37,9 @@ var styles = StyleSheet.create({
         borderRadius: 3,
         borderColor: '#ccc',
         fontSize: 17,
+    },
+    disabled: {
+        color: '#aaa'
     },
 })
 

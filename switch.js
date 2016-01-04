@@ -8,12 +8,14 @@ var Switch = React.createClass({
     getInitialState() {
         return {
             value: this.props.value,
+            disabled: this.props.disabled
         };
     },
     render() {
         return (
             <SwitchIOS value={this.state.value}
                        onValueChange={(value) => this.setState({value: value})}
+                       disabled={this.props.disabled}
             />
         );
     },

@@ -15,7 +15,8 @@ var model = {
         studentName: {
             type: f.fieldType.String,
             label: "学生姓名",
-            value: "Giulio"
+            value: "Giulio",
+            disabled: true
         },
         age: {
             type: f.fieldType.Number,
@@ -25,7 +26,8 @@ var model = {
         rememberMe: {
             type: f.fieldType.Boolean,
             label: "记住我",
-            value: true
+            value: true,
+            disabled: true
         }
     },
     Form = f.Form
