@@ -15,14 +15,14 @@ var Input = React.createClass({
         var st = this.state
 
         return (
-            <TextInput value={st.value}
+            <TextInput value={String(st.value)}
                 style={[styles.input, st.editable ? null : styles.disabled]}
                 onChangeText={(value) => this.setState({value: value})}
                 editable={st.editable}/>
         );
     },
     getValue: function(){
-        return this.state.value
+        return this.props.type === "string" ? this.state.value : Number(this.state.value)
     }
 })
 

@@ -21,7 +21,7 @@ var model = {
         age: {
             type: f.fieldType.Number,
             label: "年龄",
-            value: "18"
+            value: 18
         },
         year: {
             type: f.fieldType.Spinner,

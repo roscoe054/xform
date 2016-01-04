@@ -46,10 +46,21 @@ var Form = React.createClass({
             switch (rowModel.type) {
                 case "number":
                 case "string":
-                    rowContent = <Input ref={rowId} name={i} value={rowModel.value} editable={!rowModel.disabled}/>
+                    rowContent = <Input
+                                    ref={rowId}
+                                    name={i}
+                                    type={rowModel.type}
+                                    value={rowModel.value}
+                                    editable={!rowModel.disabled}
+                                />
                     break;
                 case "boolean":
-                    rowContent = <Switch ref={rowId} name={i} value={rowModel.value} disabled={rowModel.disabled}/>
+                    rowContent = <Switch
+                                    ref={rowId}
+                                    name={i}
+                                    value={rowModel.value}
+                                    disabled={rowModel.disabled}
+                                />
                     break;
                 case "spinner":
                     rowContent = <Spinner
