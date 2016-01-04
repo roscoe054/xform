@@ -4,6 +4,7 @@ var React = require('react-native')
 var extend = require('extend')
 
 var Switch = require('./switch');
+var Input = require('./input');
 
 var {StyleSheet, Text, View, TouchableOpacity, TextInput, SwitchIOS,} = React
 
@@ -11,7 +12,7 @@ var fieldType = {
     String: "string",
     Number: "number",
     Boolean: "boolean"
-}, formItemId = 0
+}, rowId = 0
 
 var inited = false
 var Form = React.createClass({
@@ -40,17 +41,17 @@ var Form = React.createClass({
             switch (rowModel.type) {
                 case "number":
                 case "string":
-                    rowContent = <TextInput style={[styles.input]} value={rowModel.value} />
+                    rowContent = <Input ref={rowId} name={i} value={rowModel.value} />
                     break;
                 case "boolean":
-                    rowContent = <Switch style={styles.opeComponent} value={rowModel.value} />
+                    rowContent = <Switch ref={rowId} name={i} value={rowModel.value} />
                     break;
                 default:
             }
 
             rows.push(
-                <View key={formItemId++} style={styles.operation}>
-                    <Text style={[styles.label]}>{i}</Text>
+                <View key={rowId++} style={styles.formRow}>
+                    <Text style={[styles.label]}>{rowModel.label}</Text>
                     {rowContent}
                 </View>
             )
@@ -61,38 +62,35 @@ var Form = React.createClass({
                 {rows}
             </View>
         )
+    },
+    getValue: function(){
+        var values = {}
+        for(var i in this.refs){
+            var row = this.refs[i]
+            if(row.getValue){
+                values[row.props.name] = row.getValue()
+            }
+        }
+        console.log(values);
+        return values
     }
 })
 
 var styles = StyleSheet.create({
     container: {
-        paddingTop: 8,
-        paddingBottom: 8,
+        paddingTop: 4,
+        paddingBottom: 12,
         paddingLeft: 8,
         paddingRight: 8,
         backgroundColor: '#fff',
     },
-    content: {
-        flex: 1,
-        color: "#00afc7",
-    },
     label: {
         marginBottom: 5,
         fontWeight: 'bold',
+        fontSize: 15,
     },
-    opeComponent: {
-        marginTop: 5
-    },
-    input: {
-        height: 32,
-        marginBottom: 5,
-        paddingTop: 8,
-        paddingBottom: 8,
-        paddingLeft: 7,
-        paddingRight: 7,
-        borderColor: '#ccc',
-        borderRadius: 3,
-        borderWidth: 1,
+    formRow: {
+        marginTop: 8,
     },
 })
 
