@@ -8,17 +8,16 @@ var Input = React.createClass({
     getInitialState() {
         return {
             value: this.props.value,
-            editable: this.props.editable,
         };
     },
     render() {
-        var st = this.state
-
         return (
-            <TextInput value={String(st.value)}
-                style={[styles.input, st.editable ? null : styles.disabled]}
+            <TextInput value={String(this.state.value)}
+                style={[styles.input, this.props.editable ? null : styles.disabled]}
                 onChangeText={(value) => this.setState({value: value})}
-                editable={st.editable}/>
+                editable={this.props.editable}
+                placeholder={this.props.placeholder}
+                />
         );
     },
     getValue: function(){

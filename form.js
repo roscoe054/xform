@@ -52,6 +52,7 @@ var Form = React.createClass({
                                     type={rowModel.type}
                                     value={rowModel.value}
                                     editable={!rowModel.disabled}
+                                    placeholder={rowModel.placeholder}
                                 />
                     break;
                 case "boolean":

@@ -16,12 +16,14 @@ var model = {
             type: f.fieldType.String,
             label: "学生姓名",
             value: "Giulio",
-            disabled: true
+            disabled: true,
+            placeholder: "请填写姓名"
         },
         age: {
             type: f.fieldType.Number,
             label: "年龄",
-            value: 18
+            value: 18,
+            placeholder: "请填写年龄"
         },
         year: {
             type: f.fieldType.Spinner,
