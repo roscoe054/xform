@@ -16,6 +16,7 @@ var Input = React.createClass({
                 style={[styles.input, this.props.editable ? null : styles.disabled]}
                 onChangeText={(value) => this.setState({value: value})}
                 editable={this.props.editable}
+                secureTextEntry={this.props.type === "password"}
                 placeholder={this.props.placeholder}
                 />
         );

@@ -25,6 +25,12 @@ var model = {
             value: 18,
             placeholder: "请填写年龄"
         },
+        password: {
+            type: f.fieldType.Password,
+            label: "密码",
+            value: "",
+            placeholder: "请填写密码"
+        },
         year: {
             type: f.fieldType.Spinner,
             label: "入学年份",

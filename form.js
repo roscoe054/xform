@@ -16,7 +16,8 @@ var fieldType = {
     String: "string",
     Number: "number",
     Boolean: "boolean",
-    Spinner: "spinner"
+    Spinner: "spinner",
+    Password: "password",
 }, rowId = 0
 
 var inited = false
@@ -46,6 +47,7 @@ var Form = React.createClass({
             switch (rowModel.type) {
                 case "number":
                 case "string":
+                case "password":
                     rowContent = <Input
                                     ref={rowId}
                                     name={i}
